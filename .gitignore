@@ -1,0 +1,6 @@
+node_modules
+worker
+pnpm-lock.yaml
+build
+dist
+.env

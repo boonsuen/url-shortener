@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+  <body>
+    <div class="top">
+      <h1 style="margin-top: 5px; text-align: center">URL Shortener</h1>
+      <div class="form">
+        <input
+          class="form-input"
+          type="text"
+          id="url-input"
+          placeholder="URL"
+        />
+        <input type="submit" class="btn" id="url-submit" />
+      </div>
+    </div>
+    <a id="output" target="_blank" href="#"></a>
+    <script>
+      document
+        .querySelector('#url-submit')
+        .addEventListener('click', async (e) => {
+          if (document.querySelector('#url-input').value) {
+            const response = await fetch('/', {
+              method: 'POST',
+              body: JSON.stringify({
+                url: document.querySelector('#url-input').value,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+            const text = await response.text();
+            document.querySelector('#output').innerText = text;
+            document.querySelector('#output').href = text;
+          }
+        });
+    </script>
+  </body>
+</html>

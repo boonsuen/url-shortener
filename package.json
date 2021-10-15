@@ -1,0 +1,21 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "env-cmd -x microbundle build -f modern -i src/index.js --strict -o dist/bundle.js --external none --no-pkg-main --define FAUNA_KEY=\\$FAUNA_KEY"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "microbundle": "^0.14.1"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.1.3",
+    "faunadb": "^4.4.1"
+  },
+  "type": "module"
+}
